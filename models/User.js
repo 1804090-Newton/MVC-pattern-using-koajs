@@ -8,15 +8,15 @@ const User = {
     return usersData;
   },
   getById(id) {
-    return usersData.find(user => user.id === id);
+    return usersData.find(user => user.id == id);
   },
   createUser(userData) {
     const newUser = { id: Date.now(), ...userData };
     usersData.push(newUser);
-    return newUser;
+    return usersData;
   },
   updateUser(id, userData) {
-    const index = usersData.findIndex(user => user.id === id);
+    const index = usersData.findIndex(user => user.id == id);
     if (index !== -1) {
       usersData[index] = { ...usersData[index], ...userData };
       return usersData[index];
@@ -24,7 +24,7 @@ const User = {
     return null;
   },
   deleteUser(id) {
-    const index = usersData.findIndex(user => user.id === id);
+    const index = usersData.findIndex(user => user.id == id);
     if (index !== -1) {
       const deletedUser = usersData.splice(index, 1)[0];
       return deletedUser;
